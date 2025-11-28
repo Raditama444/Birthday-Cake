@@ -1,35 +1,41 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Selamat Ulang Tahun Barakhel!</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <title>Birthday Cake</title>
+    <style>
+        /* Tambahkan style sesuai kebutuhan */
+        .cake {
+            width: 300px;
+            margin: 50px auto;
+        }
+        .show-cake {
+            display: block;
+        }
+        .hide-cake {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-  <div class="cake-container">
-    <div class="cake">
-      <div class="cream"></div>
-      <div class="strawberries">
-        <div class="strawberry"></div>
-        <div class="strawberry"></div>
-        <div class="strawberry"></div>
-      </div>
-      <div class="candle">
-        <div class="flame"></div>
-      </div>
+    <h1>Selamat Ulang Tahun!</h1>
+    <button id="show-cake-btn">Tampilkan Kue & Putar Lagu</button>
+    <div class="cake hide-cake" id="cake-container">
+        <!-- Ilustrasi kue ulang tahun atau gambar -->
+        <img src="cake.png" alt="Kue Ulang Tahun" width="300">
     </div>
-  </div>
+    <audio id="birthday-song" src="audio/happy_birthday.mp3"></audio>
 
-  <h1 class="title">🎉 Selamat Ulang Tahun, Scorvinov! 🎂</h1>
-
-  <button id="celebrateButton">🎊 Rayakan! 🎶</button>
-
-  <audio id="birthdayMusic" src="happy_birthday_piano.mp3" preload="auto"></audio>
-  <audio id="confettiSound" src="confetti_pop.mp3" preload="auto"></audio>
-
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-  <script src="script.js"></script>
+    <script>
+    document.getElementById("show-cake-btn").onclick = function () {
+        // Munculkan kue
+        document.getElementById("cake-container").classList.remove("hide-cake");
+        document.getElementById("cake-container").classList.add("show-cake");
+        // Putar lagu
+        var audio = document.getElementById("birthday-song");
+        audio.currentTime = 0;
+        audio.play();
+    }
+    </script>
 </body>
 </html>
-
